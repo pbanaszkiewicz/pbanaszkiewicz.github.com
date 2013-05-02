@@ -1,8 +1,9 @@
-Serialize SQLAlchemy query result to JSON
-#########################################
+Serialize SQLAlchemy query results to JSON
+##########################################
 
 :tags: [python, sqlalchemy, flask, json]
 :date: 30.06.2012
+:slug: serialize-sqlalchemy-results-into-json
 
 Consider you have following model and you want to create super---duper RESTful
 interface to it.
