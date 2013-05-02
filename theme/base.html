@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{ entry.lang if entry else conf.lang }}">
+<head>
+  {% block head -%}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}{% endblock %} &ndash; Piotr Banaszkiewicz</title>
+
+  <link media="screen" href="{{ env.path + '/css/pygment_trac.css' }}" rel="stylesheet" />
+  <link media="screen" href="{{ env.path + '/css/bootstrap.min.css' }}" rel="stylesheet" />
+  <link media="screen" href="{{ env.path + '/css/bootstrap-responsive.min.css' }}" rel="stylesheet" />
+  <link media="screen" href="{{ env.path + '/css/main.css' }}" rel="stylesheet" />
+
+  <link href="/img/favicon.ico" rel="shortcut icon" />
+
+  <link href="{{ env.path + '/' }}" rel="home start" />
+
+  <link href="{{ env.views.sitemap.path }}" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="{{ env.path + '/atom.xml' }}" type="application/atom+xml" rel="alternate" title="Piotr Banaszkiewicz: Blog" />
+  <link href="{{ env.path + '/rss.xml' }}" type="application/rss+xml" rel="alternate" title="Piotr Banaszkiewicz: Blog" />
+
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/javascript" src="/search/search.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  {%- endblock %}
+</head>
+<body>
+  <!-- WHOLE CONTENT -->
+  <div id="wrap">
+    <div class="container">
+
+      <!-- TOP -->
+      <div class="row">
+        <header>
+          <a id="forkme_banner" class="pull-right" href="https://github.com/pbanaszkiewicz">I'm on GitHub</a>
+          <h1>Piotr Banaszkiewicz</h1>
+        </header>
+
+        <hr class="no_bottom_margin">
+
+        <ul id="top_menu" class="inline">
+          <li><a href="/">Blog</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/about-me/">About</a></li>
+          <li class="pull-right">
+            <form id="searchform">
+              <div class="control-group" id="searchinputgroup">
+                <span class="input-append">
+                  <input type="text" id="searchinput" placeholder="Search" data-trigger="manual" data-original-title="Not found">
+                  <input class="btn" type="submit" value="↵">
+                </span>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <!-- end TOP -->
+
+      <!-- MAIN CONTENT -->
+      <div class="row">
+  {%- block content -%}
+  {%- endblock -%}
+      </div>
+      <!-- end MAIN CONTENT -->
+    </div>
+  </div>
+  <!-- end WHOLE CONTENT -->
+
+  <div id="footer">
+  {% block footer %}
+    <div class="container">
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="width: 80px; height: 15px; margin: 0; padding: 0;"
+        src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br>
+      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br>
+      Code examples are <a href="http://en.wikipedia.org/wiki/Public_domain">public domain</a>.</p>
+    </div>
+  {% endblock %}
+  </div>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

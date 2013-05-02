@@ -1,0 +1,23 @@
+<div class="well hidden" id="search_results"></div>
+
+{% if env.tag_cloud %}
+<h3>Tags:</h3>
+<ul class="bubbles inline tagcloud">
+    {% for tag in env.tag_cloud %}
+    <li class="tag-{{ tag.step }}"><a href="/tag/{{ tag.name | safeslug }}">{{ tag.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h3><a href="{{ env.path }}/projects/">Some Projects</a></h3>
+<ul>
+    <li><a href="https://code.osuosl.org/projects/ganeti-webmgr">Ganeti Web Manager</a> &ndash; web UI to Ganeti</li>
+    <li><a href="https://github.com/pbanaszkiewicz/python-rrdtool">python-rrdtool</a> &ndash; Python extension providing RDDTool bindings</li>
+</ul>
+
+<h3><a href="https://speakerdeck.com/pbanaszkiewicz">Presentations</a></h3>
+<ul>
+    <li>PyCon PL 2013: <a href="https://speakerdeck.com/pbanaszkiewicz/your-own-sandbox-thanks-to-vagrant">Your own sandbox thanks to Vagrant</a></li>
+</ul>
+
+<h3><a href="{{ env.path }}/archive/">Archive</a></h3>

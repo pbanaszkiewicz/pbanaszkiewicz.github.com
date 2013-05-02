@@ -1,0 +1,39 @@
+GSOC 2012
+#########
+
+:tags: [ganeti, google, gsoc, gwm, metrics, python]
+:date: 09.06.2012
+
+
+Google Summer of Code 2012 has begun and I'm one of participants. I have to
+admit, I was **thrilled** when I found out.
+
+My project is to bring metrics (like CPU, RAM, disk, net usage), alerts and
+graphs to the cool |GWM|_ by |OSUOSL|_.
+
+For metrics collection I decided to use collectd_ daemon. It'll be backed up
+by my soon-to-be-born collectd-ganeti_ plugin.
+
+Collectd will be installed on the host (Ganeti node), and this plugin will
+gather usage information from KVM (and later Xen). This way there's no need to
+install collectd on every virtual machine Ganeti creates.
+
+Next to collectd, I'm going to create a some kind of network daemon, which
+will monitor and send metrics data to GWM. For now I created something very
+pre-alpha_ -- no---one should use it.
+
+Following weeks are going to be very important to me. Not only will I get my
+final exams results, but also there will take place university admission. And
+Google seems to want job---interview with me.
+
+.. |GWM| replace:: Ganeti Web Manager
+.. _GWM: https://code.osuosl.org/projects/ganeti-webmgr
+
+.. |OSUOSL| replace:: Oregon State University Open Source Lab
+.. _OSUOSL: http://osuosl.org/
+
+.. _collectd: http://collectd.org/
+
+.. _collectd-ganeti: https://github.com/pbanaszkiewicz/collectd-ganeti/
+
+.. _pre-alpha: https://github.com/pbanaszkiewicz/collectd-playground/

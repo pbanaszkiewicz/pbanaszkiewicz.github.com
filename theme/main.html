@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {%- if entry is defined -%}
+      {{ entry.title }}
+    {%- else -%}
+      {{ conf.sitename }}
+    {%- endif -%}
+{% endblock %}
+
+{% block head %}
+    {{- super() }}
+    {%- if entry is defined %}
+    <meta name="description" content="{{ entry.description | e }}" />
+    <meta name="keywords" content="{{ entry.tags | join(', ') }}" />
+    {%- endif -%}
+{% endblock %}
+
+{% block content %}
+{% if entry is defined %}
+    {% if entry.type == "page" %}
+    <div class="span8">
+        {% include 'staticpage.html' %}
+    </div>
+    {% else %}
+    <div class="span8">
+        {% include 'entry.html' %}
+    </div>
+    {% endif %}
+{% else %}
+    <div class="span8">
+    {% for entry in env.entrylist %}
+        {% include 'short_entry.html' %}
+    {% endfor %}
+        <ul class="pager">
+            <li class="previous {% if env.prev is none %}disabled{% endif %}">
+                {%- if not env.prev %}
+                    {% set prev = "#" %}
+                {% elif env.prev|string|length == 0 %}
+                    {% set prev = "/" %}
+                {% else %}
+                    {% set prev = env.path ~ env.prev %}
+                {% endif -%}
+                <a href="{{ prev }}">&larr; Older</a>
+            </li>
+            <li class="next {% if env.next is none %}disabled{% endif %}">
+                {%- if not env.next %}
+                    {% set next = "#" %}
+                {% elif env.next|string|length == 0 %}
+                    {% set next = "/" %}
+                {% else %}
+                    {% set next = env.path ~ env.next %}
+                {% endif -%}
+                <a href="{{ next }}">Newer &rarr;</a>
+            </li>
+        </ul>
+    </div>
+{% endif %}
+    <div class="span4">
+        {% include 'sidebar.html' %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+    {% if conf.disqus_shortname and env.type == 'index' %}
+        <script type="text/javascript">
+            var disqus_shortname = '{{ conf.disqus_shortname }}';
+            if (window.location.hostname != 'localhost') {
+                 /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var s = document.createElement('script'); s.async = true;
+                    s.type = 'text/javascript';
+                    s.src = '{{ env.protocol }}://' + disqus_shortname + '.disqus.com/count.js';
+                    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);}());
+            }
+        </script>
+        {% endif %}
+{% endblock %}
