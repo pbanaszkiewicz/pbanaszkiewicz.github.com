@@ -3,24 +3,24 @@ About me
 
 :type: page
 
-.. raw:: html
-
-    <img src="/photos/me.jpg" alt="Me" class="pull-right img-polaroid" />
-
 Young programmer. Cyclist. Linux enthusiast. Humbly involved in `some Open Source communities </projects/>`_.
 
 Google Summer of Code and Automation Control and Robotics student.
+
 
 Contact me
 ~~~~~~~~~~
 
 E---mail: :code:`piotr (at sign) banaszkiewicz (dot sign) org`
 
+
 Social networks
 ~~~~~~~~~~~~~~~
 
-`pbanaszkiewicz@Github <https://github.com/pbanaszkiewicz>`_
+.. raw:: html
 
-`pbanaszkiewicz@Twitter <http://twitter.com/pbanaszkiewicz>`_
+    <p><i class="icon-github icon-2x"></i> <a href="https://github.com/pbanaszkiewicz">pbanaszkiewicz</a></p>
+    <p><i class="icon-twitter icon-2x"></i> <a href="http://twitter.com/pbanaszkiewicz">pbanaszkiewicz</a></p>
+    <p><i class="icon-google-plus icon-2x"></i> <a href="http://plus.ly/pbanaszkiewicz">pbanaszkiewicz</a></p>
 
-pbnan @ irc.freenode.net
+pbanaszkiewicz @ irc.freenode.net

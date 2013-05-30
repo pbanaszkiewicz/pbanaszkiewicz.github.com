@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {%- if entry is defined -%}
+      {{ entry.title }}
+    {%- else -%}
+      {{ conf.sitename }}
+    {%- endif -%}
+{% endblock %}
+
+{% block head %}
+    {{- super() }}
+    {%- if entry is defined %}
+    <meta name="description" content="{{ entry.description | e }}" />
+    <meta name="keywords" content="{{ entry.tags | join(', ') }}" />
+    {%- endif -%}
+{% endblock %}
+
+{% block content %}
+{% if entry is defined %}
+    {% if entry.type == "page" %}
+        {% include 'staticpage.html' %}
+    {% else %}
+        {% include 'entry.html' %}
+    {% endif %}
+{% else %}
+    {% for entry in env.entrylist %}
+        {% include 'short_entry.html' %}
+    {% endfor %}
+        <ul class="pagination">
+            {% if env.prev is not none %}
+            <li class="previous pull-left">
+                {%- if not env.prev %}
+                    {% set prev = "#" %}
+                {% elif env.prev|string|length == 0 %}
+                    {% set prev = "/" %}
+                {% else %}
+                    {% set prev = env.path ~ env.prev %}
+                {% endif -%}
+                <a href="{{ prev }}">&larr; Older</a>
+            </li>
+            {% endif %}
+            {% if env.next is not none %}
+            <li class="next pull-right">
+                {%- if not env.next %}
+                    {% set next = "#" %}
+                {% elif env.next|string|length == 0 %}
+                    {% set next = "/" %}
+                {% else %}
+                    {% set next = env.path ~ env.next %}
+                {% endif -%}
+                <a href="{{ next }}">Newer &rarr;</a>
+            </li>
+            {% endif %}
+        </ul>
+{% endif %}
+{% endblock %}
+
+{% block datetime -%}
+{% if entry is defined and entry.type != "page" %}
+Written on {{ entry.date.strftime("%a %d %B, %Y") }}.
+{% endif %}
+{%- endblock %}
+
+{% block tags -%}
+{% if entry is defined and entry.type != "page" and entry.tags %}
+<span>Tags:</span>
+<ul class="tags">
+    {% for link in entry.tags | tagify -%}
+    <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{%- endblock %}

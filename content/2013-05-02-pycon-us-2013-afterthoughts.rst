@@ -16,7 +16,8 @@ The following day, 12/03/2013, we had our flight to Münich, Germany first thing
 in the morning.  After such a short night, I fell asleep really easy.
 
 From Münich we had our transcontinental flight to Philadelphia, Pennsylvania,
-US.  That was SUCH LONG FLIGHT.  In eco class you don't get anything fancy...
+US.  That was **such a long flight**.  In eco class you don't get anything
+fancy...
 
 However, as it turned out, the airplane had many conveniences and was quite
 luxurious (when compared to the airplane I was sitting in during flight to

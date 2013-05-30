@@ -4,19 +4,22 @@
 
 SITENAME = 'Blog'
 WWW_ROOT = 'http://piotr.banaszkiewicz.org/'
-STATIC = ['assets', ]
+# STATIC = ['assets', ]
+STATIC = ['assets3', ]
 
 AUTHOR = 'Piotr Banaszkiewicz'
 EMAIL = 'piotr@banaszkiewicz.org'
 
 METASTYLE = "native"
-FILTERS = ['reStructuredText', 'hyphenate', 'h3', 'typography']
+FILTERS = ['reStructuredText', 'hyphenate', 'h2', 'typography']
 # FILTERS = ['reStructuredText', 'hyphenate', 'typography']
 VIEWS = {
-    '/': {'view': 'index', 'pagination': '/page/:num/', 'items_per_page': 5},
+    '/': {'view': 'index', 'pagination': '/page/:num/', 'items_per_page': 5,
+    'filters': 'intro+2'},
 
     '/blog/:year/:month/:day/:slug/': {'views': ['entry', 'draft']},
 
+    '/tags/': {'view': 'tag', 'template': 'tags.html'},
     '/tag/:name/': {'view':'tag', 'pagination': '/tag/:name/:num/'},
 
     '/atom.xml': {'filters': ['h2', 'nohyphenate'], 'view': 'atom'},
@@ -53,7 +56,10 @@ VIEWS = {
     '/search/': {'view': 'search', 'filters': 'strip+pre'},
 }
 
-THEME = 'theme'
+# SUMMARIZE_LINK = INTRO_LINK = '<a href="%s">&hellip;</a>'
+
+# THEME = 'theme'
+THEME = 'theme3'
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%d.%m.%Y, %H:%M'
 LANG = "en_US.utf8"

@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block title %}Tags{% endblock %}
+
+{% block content %}
+    {% if env.tag_cloud %}
+    <h1>Tags</h1>
+    <ul class="tagcloud clearfix">
+        {% for tag in env.tag_cloud %}
+        <li class="tag-{{ tag.step }}"><a href="/tag/{{ tag.name | safeslug }}">{{ tag.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
