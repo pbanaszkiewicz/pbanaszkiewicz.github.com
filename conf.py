@@ -65,6 +65,6 @@ LANG = "en_US.utf8"
 DISQUS_SHORTNAME = "pbanaszkiewicz"
 
 DEPLOYMENT = {
-    "default": "cp CNAME $OUTPUT_DIR; cp .nojekyll $OUTPUT_DIR; ghp-import -b master -p $OUTPUT_DIR",
+    "default": 'cp CNAME "$OUTPUT_DIR"; cp .nojekyll "$OUTPUT_DIR"; ghp-import -b master -p "$OUTPUT_DIR"',
     "clean": "rm $OUTPUT_DIR -rf",
 }
