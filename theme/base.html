@@ -1,88 +1,101 @@
 <!DOCTYPE html>
-<html lang="{{ entry.lang if entry else conf.lang }}">
-<head>
-  {% block head -%}
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    {% block head -%}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} &middot; Piotr Banaszkiewicz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog by Piotr Banaszkiewicz">
+    <meta name="author" content="Piotr Banaszkiewicz">
 
-  <title>{% block title %}{% endblock %} &ndash; Piotr Banaszkiewicz</title>
+    <link rel="stylesheet" href="{{ env.path + '/css/pure-min.css' }}">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Dosis:700'
+      rel='stylesheet' type='text/css'>
+    <link media="screen" href="{{ env.path + '/css/pygment_trac.css' }}" rel="stylesheet" />
+    <link href="{{ env.path + '/css/font-awesome.min.css'}}" rel="stylesheet">
+    <!--[if IE 7]>
+    <link href="{{ env.path + '/css/font-awesome-ie7.min.css'}}" rel="stylesheet">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="{{ env.path + '/js/html5shiv.js'}}"></script>
+    <![endif]-->
+    <link href="{{ env.path + '/css/main.css'}}" rel="stylesheet">
 
-  <link media="screen" href="{{ env.path + '/css/pygment_trac.css' }}" rel="stylesheet" />
-  <link media="screen" href="{{ env.path + '/css/bootstrap.min.css' }}" rel="stylesheet" />
-  <link media="screen" href="{{ env.path + '/css/bootstrap-responsive.min.css' }}" rel="stylesheet" />
-  <link media="screen" href="{{ env.path + '/css/main.css' }}" rel="stylesheet" />
+    <link href="{{ env.path + '/' }}" rel="home start" />
 
-  <link href="/img/favicon.ico" rel="shortcut icon" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="{{ env.path + '/img/ico/apple-touch-icon-144-precomposed.png'}}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="{{ env.path + '/img/ico/apple-touch-icon-114-precomposed.png'}}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="{{ env.path + '/img/ico/apple-touch-icon-72-precomposed.png'}}">
+    <link rel="apple-touch-icon-precomposed"
+      href="{{ env.path + '/img/ico/apple-touch-icon-57-precomposed.png'}}">
+    <link rel="shortcut icon" href="{{ env.path + '/img/ico/favicon.png'}}">
+    {%- endblock %}
+  </head>
+  <body>
 
-  <link href="{{ env.path + '/' }}" rel="home start" />
+    <div class="pure-g-r" id="content-wrapper">
+      <div class="pure-u-1-8" id="menu">
+        <div class="pure-menu pure-menu-open">
+          <a class="pure-menu-heading" href="/">Piotr Banaszkiewicz</a>
+          <ul id="sidebar-menu">
+            <li><a href="/">Blog</a></li>
+            <li><a href="/archive/">Archive</a></li>
+            <li><a href="/tags/">Tags</a></li>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/about-me/">About me</a></li>
+            <li class="menu-item-divided">
+              <a href="https://github.com/pbanaszkiewicz">I'm on Github!</a>
+            </li>
+            <li><a href="https://speakerdeck.com/pbanaszkiewicz">Presentations</a></li>
+          </ul>
+        </div>
 
-  <link href="{{ env.views.sitemap.path }}" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="{{ env.path + '/atom.xml' }}" type="application/atom+xml" rel="alternate" title="Piotr Banaszkiewicz: Blog" />
-  <link href="{{ env.path + '/rss.xml' }}" type="application/rss+xml" rel="alternate" title="Piotr Banaszkiewicz: Blog" />
+      </div><!-- end of menu -->
 
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script type="text/javascript" src="/search/search.js"></script>
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  {%- endblock %}
-</head>
-<body>
-  <!-- WHOLE CONTENT -->
-  <div id="wrap">
-    <div class="container">
+      <div class="pure-u-2-5" id="main">
+        <div id="content">
+{%- block content -%}
+{%- endblock -%}
+        </div><!-- end of content -->
 
-      <!-- TOP -->
-      <div class="row">
-        <header>
-          <a id="forkme_banner" class="pull-right" href="https://github.com/pbanaszkiewicz">I'm on GitHub</a>
-          <h1>Piotr Banaszkiewicz</h1>
-        </header>
+        <div id="footer" class="clearfix">
+          <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="width: 80px; height: 15px; margin: 0; padding: 0;"
+          src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br>
+          This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br>
+          Code examples are <a href="http://en.wikipedia.org/wiki/Public_domain">public domain</a>.</p>
+        </div><!-- end of footer -->
+      </div><!-- end of main -->
 
-        <hr class="no_bottom_margin">
+      <div class="pure-u-1-5" id="metainfo">
+        <div class="avatar"></div>
+        <p class="name">Piotr Banaszkiewicz</p>
+        <p><a href="http://www.agh.edu.pl/en/">AGH-UST</a> student, computer<br>
+            geek, Python programmer,<br>
+            cyclist.</p>
+        <p class="datetime">{% block datetime %}{% endblock %}</p>
+        {% block tags %}{% endblock %}
+      </div><!-- end of metainfo -->
+    </div><!-- end of content-wrapper -->
 
-        <ul id="top_menu" class="inline">
-          <li><a href="/">Blog</a></li>
-          <li><a href="/projects/">Projects</a></li>
-          <li><a href="/about-me/">About</a></li>
-          <li class="pull-right">
-            <form id="searchform">
-              <div class="control-group" id="searchinputgroup">
-                <span class="input-append">
-                  <input type="text" id="searchinput" placeholder="Search" data-trigger="manual" data-original-title="Not found">
-                  <input class="btn" type="submit" value="↵">
-                </span>
-              </div>
-            </form>
-          </li>
-        </ul>
-      </div>
-      <!-- end TOP -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript">
+      jQuery.fn.reverse = [].reverse;
 
-      <!-- MAIN CONTENT -->
-      <div class="row">
-  {%- block content -%}
-  {%- endblock -%}
-      </div>
-      <!-- end MAIN CONTENT -->
-    </div>
-  </div>
-  <!-- end WHOLE CONTENT -->
+      var path = window.location.pathname;
 
-  <div id="footer">
-  {% block footer %}
-    <div class="container">
-      <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="width: 80px; height: 15px; margin: 0; padding: 0;"
-        src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br>
-      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br>
-      Code examples are <a href="http://en.wikipedia.org/wiki/Public_domain">public domain</a>.</p>
-    </div>
-  {% endblock %}
-  </div>
-
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/main.js"></script>
-</body>
+      $("#sidebar-menu li a").reverse().each(function() {
+        var href = $(this).attr("href");
+        if (path.substr(0, href.length) == href)
+        {
+          $(this).parent().toggleClass("pure-menu-selected");
+          return false;
+        }
+      });
+    </script>
+  </body>
 </html>

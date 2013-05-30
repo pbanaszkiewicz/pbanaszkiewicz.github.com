@@ -19,21 +19,17 @@
 {% block content %}
 {% if entry is defined %}
     {% if entry.type == "page" %}
-    <div class="span8">
         {% include 'staticpage.html' %}
-    </div>
     {% else %}
-    <div class="span8">
         {% include 'entry.html' %}
-    </div>
     {% endif %}
 {% else %}
-    <div class="span8">
     {% for entry in env.entrylist %}
         {% include 'short_entry.html' %}
     {% endfor %}
-        <ul class="pager">
-            <li class="previous {% if env.prev is none %}disabled{% endif %}">
+        <ul class="pagination">
+            {% if env.prev is not none %}
+            <li class="previous pull-left">
                 {%- if not env.prev %}
                     {% set prev = "#" %}
                 {% elif env.prev|string|length == 0 %}
@@ -43,7 +39,9 @@
                 {% endif -%}
                 <a href="{{ prev }}">&larr; Older</a>
             </li>
-            <li class="next {% if env.next is none %}disabled{% endif %}">
+            {% endif %}
+            {% if env.next is not none %}
+            <li class="next pull-right">
                 {%- if not env.next %}
                     {% set next = "#" %}
                 {% elif env.next|string|length == 0 %}
@@ -53,27 +51,24 @@
                 {% endif -%}
                 <a href="{{ next }}">Newer &rarr;</a>
             </li>
+            {% endif %}
         </ul>
-    </div>
 {% endif %}
-    <div class="span4">
-        {% include 'sidebar.html' %}
-    </div>
 {% endblock %}
 
-{% block footer %}
-    {{ super() }}
-    {% if conf.disqus_shortname and env.type == 'index' %}
-        <script type="text/javascript">
-            var disqus_shortname = '{{ conf.disqus_shortname }}';
-            if (window.location.hostname != 'localhost') {
-                 /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function () {
-                    var s = document.createElement('script'); s.async = true;
-                    s.type = 'text/javascript';
-                    s.src = '{{ env.protocol }}://' + disqus_shortname + '.disqus.com/count.js';
-                    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);}());
-            }
-        </script>
-        {% endif %}
-{% endblock %}
+{% block datetime -%}
+{% if entry is defined and entry.type != "page" %}
+Written on {{ entry.date.strftime("%a %d %B, %Y") }}.
+{% endif %}
+{%- endblock %}
+
+{% block tags -%}
+{% if entry is defined and entry.type != "page" and entry.tags %}
+<span>Tags:</span>
+<ul class="tags">
+    {% for link in entry.tags | tagify -%}
+    <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{%- endblock %}

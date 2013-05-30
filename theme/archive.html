@@ -3,8 +3,7 @@
 {% block title %}Archive{% endblock %}
 
 {% block content %}
-<div class="span8">
-    <h2>Archive</h2>
+    <h1>Archive</h1>
     <article>
         <table id="arc">
         {% for year in env.globals.entrylist | archivesfor %}
@@ -28,8 +27,4 @@
         {% endfor %}
         </table>
     </article>
-</div>
-<div class="span4">
-    {% include "sidebar.html" %}
-</div>
 {% endblock %}

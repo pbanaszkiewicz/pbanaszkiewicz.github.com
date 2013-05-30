@@ -1,21 +1,2 @@
-<div class="short_post">
-    <h2><a href="{{ env.path + entry.permalink }}" rel="bookmark canonical">{{ entry.title }}</a></h2>
-    <!-- entry content begin -->
-    {{ entry.content }}
-    <!-- entry content end -->
-
-    <div class="meta">
-        <span class="date">Written on {{ entry.date.strftime("%d %m %Y") }},</span>
-        {% if 'tag' in env.views and entry.tags %}
-            <span>tags:</span>
-            <ul class="inline">
-                {% for link in entry.tags | tagify -%}
-                    <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
-                {% endfor %}
-            </ul>
-        {% elif not entry.draft %}
-            <span>untagged</span>
-        {% endif %}
-            <span class="date"><a href="{{ env.path + entry.permalink }}#disqus_thread">Comments</a></span>
-    </div>
-</div>
+<h1><a href="{{ env.path + entry.permalink }}" rel="bookmark canonical">{{ entry.title }}</a></h1>
+{{ entry.content }}

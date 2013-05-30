@@ -4,8 +4,7 @@
 
 SITENAME = 'Blog'
 WWW_ROOT = 'http://piotr.banaszkiewicz.org/'
-# STATIC = ['assets', ]
-STATIC = ['assets3', ]
+STATIC = ['assets', ]
 
 AUTHOR = 'Piotr Banaszkiewicz'
 EMAIL = 'piotr@banaszkiewicz.org'
@@ -58,8 +57,7 @@ VIEWS = {
 
 # SUMMARIZE_LINK = INTRO_LINK = '<a href="%s">&hellip;</a>'
 
-# THEME = 'theme'
-THEME = 'theme3'
+THEME = 'theme'
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%d.%m.%Y, %H:%M'
 LANG = "en_US.utf8"
