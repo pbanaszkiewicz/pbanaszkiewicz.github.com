@@ -13,9 +13,9 @@ interface to it.
     from application.database import db
 
     class BlogPost(db.Model):
-      id = db.Column(db.Integer, primary_key=True)
-      title = db.Column(db.String(50))
-      content = db.Column(db.Text)
+        id = db.Column(db.Integer, primary_key=True)
+        title = db.Column(db.String(50))
+        content = db.Column(db.Text)
 
 And here's one of your views, which returns all the available blog posts:
 
@@ -26,7 +26,7 @@ And here's one of your views, which returns all the available blog posts:
 
     @app.route("/posts")
     def blog_posts():
-      return jsonify(posts=list(BlogPost.query.all()))
+        return jsonify(posts=list(BlogPost.query.all()))
 
 But unfortunately SQLAlchemy results cannot be serialized to JSON. What to do?
 
