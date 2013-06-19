@@ -19,7 +19,7 @@ VIEWS = {
     '/blog/:year/:month/:day/:slug/': {'views': ['entry', 'draft']},
 
     '/tags/': {'view': 'tag', 'template': 'tags.html'},
-    '/tag/:name/': {'view':'tag', 'pagination': '/tag/:name/:num/'},
+    '/tag/:name/': {'view': 'tag', 'pagination': '/tag/:name/:num/'},
 
     '/atom.xml': {'filters': ['h2', 'nohyphenate'], 'view': 'atom'},
     '/rss.xml': {'filters': ['h2', 'nohyphenate'], 'view': 'rss'},
