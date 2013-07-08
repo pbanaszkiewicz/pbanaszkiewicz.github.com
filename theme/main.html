@@ -27,9 +27,9 @@
     {% for entry in env.entrylist %}
         {% include 'short_entry.html' %}
     {% endfor %}
-        <ul class="pagination">
+        <ul class="pager">
             {% if env.prev is not none %}
-            <li class="previous pull-left">
+            <li class="previous">
                 {%- if not env.prev %}
                     {% set prev = "#" %}
                 {% elif env.prev|string|length == 0 %}
@@ -41,7 +41,7 @@
             </li>
             {% endif %}
             {% if env.next is not none %}
-            <li class="next pull-right">
+            <li class="next">
                 {%- if not env.next %}
                     {% set next = "#" %}
                 {% elif env.next|string|length == 0 %}

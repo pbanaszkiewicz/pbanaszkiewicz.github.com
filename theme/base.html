@@ -8,11 +8,11 @@
     <meta name="description" content="Blog by Piotr Banaszkiewicz">
     <meta name="author" content="Piotr Banaszkiewicz">
 
-    <link rel="stylesheet" href="{{ env.path + '/css/pure-min.css' }}">
-    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:700'
-      rel='stylesheet' type='text/css'>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Dosis:700'
-      rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="{{ env.path + '/css/bootstrap.min.css' }}">
+    <link rel="stylesheet" href="{{ env.path + '/css/bootstrap-responsive.min.css' }}">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800|Gentium+Book+Basic:400,400italic,700'
+          rel='stylesheet' type='text/css'>
     <link media="screen" href="{{ env.path + '/css/pygment_trac.css' }}" rel="stylesheet" />
     <link href="{{ env.path + '/css/font-awesome.min.css'}}" rel="stylesheet">
     <!--[if IE 7]>
@@ -38,50 +38,50 @@
   </head>
   <body>
 
-    <div class="pure-g-r" id="content-wrapper">
-      <div class="pure-u-1-8" id="menu">
-        <div class="pure-menu pure-menu-open">
-          <a class="pure-menu-heading" href="/">Piotr Banaszkiewicz</a>
-          <ul id="sidebar-menu">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2" id="menu">
+          <ul class="nav nav-list" id="sidebar-menu">
+            <li class="nav-header">Piotr Banaszkiewicz</li>
             <li><a href="/">Blog</a></li>
             <li><a href="/archive/">Archive</a></li>
             <li><a href="/tags/">Tags</a></li>
             <li><a href="/projects/">Projects</a></li>
             <li><a href="/about-me/">About me</a></li>
-            <li class="menu-item-divided">
-              <a href="https://github.com/pbanaszkiewicz"><i class="icon-github"></i> I'm on GitHub</a>
-            </li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/pbanaszkiewicz"><i class="icon-github"></i> I'm on GitHub</a></li>
             <li><a href="https://speakerdeck.com/pbanaszkiewicz"><i class="icon-book"></i> Presentations</a></li>
             <li><a href="http://www.flickr.com/photos/96040523@N03/sets/"><i class="icon-flickr"></i> Photos</a></li>
           </ul>
-        </div>
+        </div><!-- end of menu -->
 
-      </div><!-- end of menu -->
-
-      <div class="pure-u-2-5" id="main">
-        <div id="content">
+        <div class="span5 offset2" id="content">
 {%- block content -%}
 {%- endblock -%}
+
+          <div id="footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+               <img src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png"
+                    alt="Creative Commons License"/></a><br>
+            This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br>
+            Code examples are <a href="http://en.wikipedia.org/wiki/Public_domain">public domain</a>.</p>
+          </div><!-- end of footer -->
         </div><!-- end of content -->
+      <!-- </div>
 
-        <div id="footer" class="clearfix">
-          <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="width: 80px; height: 15px; margin: 0; padding: 0;"
-          src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br>
-          This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br>
-          Code examples are <a href="http://en.wikipedia.org/wiki/Public_domain">public domain</a>.</p>
-        </div><!-- end of footer -->
-      </div><!-- end of main -->
-
-      <div class="pure-u-1-5" id="metainfo">
-        <div class="avatar"></div>
-        <p class="name">Piotr Banaszkiewicz</p>
-        <p><a href="http://www.agh.edu.pl/en/">AGH-UST</a> student, computer<br>
-            geek, Python programmer,<br>
-            cyclist.</p>
-        <p class="datetime">{% block datetime %}{% endblock %}</p>
-        {% block tags %}{% endblock %}
-      </div><!-- end of metainfo -->
-    </div><!-- end of content-wrapper -->
+      <div class="row-fluid"> -->
+        <div class="span3" id="metainfo">
+          <div class="avatar"></div>
+          <img src="{{ env.path + '/img/me_avatar.jpg' }}" class="img-circle" />
+          <p class="name">Piotr Banaszkiewicz</p>
+          <p><a href="http://www.agh.edu.pl/en/">AGH-UST</a> student, computer<br>
+              geek, Python programmer,<br>
+              cyclist.</p>
+          <p class="datetime">{% block datetime %}{% endblock %}</p>
+          {% block tags %}{% endblock %}
+        </div><!-- end of metainfo -->
+      </div>
+    </div>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript"
@@ -91,11 +91,11 @@
 
       var path = window.location.pathname;
 
-      $("#sidebar-menu li a").reverse().each(function() {
+      $("#menu li a").reverse().each(function() {
         var href = $(this).attr("href");
         if (path.substr(0, href.length) == href)
         {
-          $(this).parent().toggleClass("pure-menu-selected");
+          $(this).parent().toggleClass("active");
           return false;
         }
       });

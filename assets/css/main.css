@@ -1,214 +1,113 @@
-@font-face {
-  font-family: 'SourceSansPro-Regular';
-  src: url('../font/SourceSansPro-Regular.eot');
-  src: url('../font/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
-       url('../font/SourceSansPro-Regular.woff') format('woff'),
-       url('../font/SourceSansPro-Regular.ttf') format('truetype'),
-       url('../font/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg');
-  font-style: normal;
-  font-weight: 400;
+/* FONTS */
+#content, #footer, #metainfo,
+#content dt, #content dd {
+  font: 400 18px/28px "gentium book basic";
+  color: rgb(34, 34, 34);
 }
-
-html, body {
-  font-family: 'SourceSansPro-Regular', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+#content strong, #footer strong, #metainfo strong {
+  font: 700 18px/28px "gentium book basic";
 }
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Noticia Text', sans-serif;
+  font-family: "open sans";
+  font-weight: 800;
+}
+#menu .nav-list {
+  font: 400 18px/30px "open sans";
+}
+#menu .nav-list .nav-header {
+  font: 400 19px/40px "open sans";
+}
+#metainfo {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 20px;
+}
+#metainfo .tags {
+  font-style: normal;
+}
+#metainfo .name {
   font-weight: 700;
+  font-style: normal;
 }
 
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before, .clearfix:after {
-  display: table;
-  content: "";
-}
-.clearfix:after {
-  clear: both;
-}
 
-#content-wrapper {
-  padding-left: 270px;
-  left: 0;
+/* SOME LAYOUT CHANGES */
+.container-fluid {
+  padding-left: 0;
 }
-
 #menu {
-  margin-left: -270px;
   position: fixed;
-  left: 270px;
+  left: 0;
   top: 0;
-  bottom: 0;
-  z-index: 1000;
-  overflow-y: auto;
+  height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 20px;
+}
+
+
+/* COLORS and STYLES */
+#menu {
   background-color: #252A3A;
 }
-
-#menu a {
-  border: none;
-  color: #AAA;
-  white-space: normal;
-  padding: 0.6em 0.6em 0.6em 0.6em;
-}
-
-#menu .pure-menu-heading {
+#menu .nav-header {
   color: #FFF;
-  font-size: 19px;
-  display: block;
+  padding: 15px 15px;
   text-align: center;
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
 }
-
-#menu .pure-menu-heading:hover, #menu .pure-menu-heading:focus {
+#menu a {
+  color: #AAA;
+  text-shadow: none;
+  padding: 15px 15px;
+}
+#menu a:hover, #menu a:focus, #menu .active a {
+  background-color: rgb(55, 60, 90);
+}
+#menu .divider {
+  margin: 9px -15px;
+  border-bottom: 1px solid #AAA;
   background-color: transparent;
-}
-
-#menu .pure-menu-open, #menu .pure-menu ul {
-  background-color: transparent;
-  border: none;
-}
-
-#menu .pure-menu-link {
-  display: none;
-  top: 0;
-  left: 240px;
-  background: #000;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 0.75em 1em;
-}
-
-#menu .pure-menu-link:hover {
-  background-color: #000;
-}
-
-#menu .pure-menu li a:hover,
-#menu .pure-menu li a:focus {
-  background-color: #373C5A;
-  text-decoration: none;
-  /*color: #000;*/
-}
-
-#menu .pure-menu li.pure-menu-selected a {
-  background-color: #373C5A;
-}
-
-#menu > .pure-menu ul, #menu > .pure-menu .menu-item-divided {
-  border-top: 1px solid #555;
-}
-
-#menu .center * {
-  width: 90%;
-  margin: 6px auto;
-}
-
-#content-wrapper, #menu, .pure-menu-link {
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
 }
 
 #metainfo {
-  position: fixed;
-  top: 20px;
-  left: 954px;
-  font-size: 14px;
+  margin-top: 20px;
 }
-
-#metainfo .avatar {
+#metainfo .tags {
+  list-style: none;
+  margin-left: 20px;
+}
+#metainfo img {
   width: 100px;
   height: 100px;
-  background: url(../img/me_avatar.jpg) no-repeat;
-  background-size: 100px 100px;
-  border-radius: 50%;
-}
-
-#metainfo p, #metainfo span {
-  font-style: italic;
-}
-
-#metainfo p.name {
-  font-weight: 700;
-}
-
-a {
-  color: #337;
-  text-decoration: underline;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  text-decoration: none;
-}
-
-a:hover, a:focus {
-  text-decoration: underline;
-  background-color: #EEF;
-}
-
-h1 a:hover {
-  background-color: transparent;
-}
-
-#content code {
-  font-size: 16px;
-  padding: 5px 10px;
-}
-
-#content pre {
-  font-size: 16px;
-}
-
-#content tt, #content code {
-  font-size: 16px;
-  background-color: #EEF;
-}
-
-.tags {
-  margin: 0;
-  padding: 0;
-}
-
-.tags li {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0 20px;
-}
-
-hr {
-  border: none;
-  border-bottom: 1px solid #333;
-  margin: 20px 0;
-  padding: 20px 0;
-}
-
-.pagination {
-  padding: 40px 0 40px 0;
-  list-style: none;
 }
 
 #footer {
-  font-size: 12px;
-  color: #555;
-  border-top: 1px solid #555;
-  margin-top: 80px;
+  margin-top: 50px;
+  border-top: 1px solid #AAA;
+  font-size: 16px;
+  line-height: 24px;
 }
-
-#footer p {
-  padding: 0 10px;
-}
-
-#footer a {
+#footer img {
+  height: 15px;
+  width: 80px;
+  margin: 0;
   padding: 0;
-  color: #555;
 }
 
-#footer a:hover, #footer a:focus {
-  background-color: transparent;
+/* aka code element; borrowed from Bootstrap <code> CSS */
+#content tt {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  border-radius: 3px 3px 3px 3px;
+  padding: 2px 4px;
+  color: rgb(221, 17, 68);
+  white-space: nowrap;
+  background-color: rgb(247, 247, 249);
+  border: 1px solid rgb(225, 225, 232);
+}
+
+#content dt {
+  font-weight: 700;
 }
 
 .tagcloud {
@@ -227,26 +126,18 @@ hr {
   padding: 10px 10px 0 10px;
 }
 
-.tag-3 { font-size: 90%; }
-.tag-2 { font-size: 100%; }
-.tag-1 { font-size: 120%; }
-.tag--1 { font-size: 140%; }
-.tag--2 { font-size: 160%; }
-.tag--3 { font-size: 180%; }
+.tag-3 { font-size: 16px; }
+.tag-2 { font-size: 18px; }
+.tag-1 { font-size: 20px; }
+.tag-0 { font-size: 22px; font-weight: 700; }
+.tag--1 { font-size: 24px; font-weight: 700; }
+.tag--2 { font-size: 26px; font-weight: 700; }
+.tag--3 { font-size: 28px; font-weight: 700; }
 
 
 @media (max-width: 767px) {
   #menu {
-    /*margin-left: -270px;*/
-    position: relative;
-    /*left: 270px;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
-    z-index: 0;
-    /*overflow-y: auto;*/
-  }
-
-  #footer {
-    display: none;
+    position: static;
+    height: auto;
   }
 }
