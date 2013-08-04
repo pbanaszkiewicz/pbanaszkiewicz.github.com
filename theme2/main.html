@@ -8,12 +8,25 @@
     {%- endif -%}
 {% endblock %}
 
-{% block head %}
+{% block meta %}
     {{- super() }}
     {%- if entry is defined %}
-    <meta name="description" content="{{ entry.description | e }}" />
     <meta name="keywords" content="{{ entry.tags | join(', ') }}" />
     {%- endif -%}
+{% endblock %}
+
+{% block dateinfo %}
+{% if entry is defined and entry.type != "page" %}
+    <p class="text-right">Written on<br>{{ entry.date.strftime("%a %d %B, %Y") }}.</p>
+    {%- if entry.tags %}
+    <p class="text-right">Tags:</p>
+    <ul>
+        {% for link in entry.tags | tagify -%}
+        <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif -%}
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -21,11 +34,11 @@
     {% if entry.type == "page" %}
         {% include 'staticpage.html' %}
     {% else %}
-        {% include 'entry.html' %}
+        {% include 'entrypage.html' %}
     {% endif %}
 {% else %}
     {% for entry in env.entrylist %}
-        {% include 'short_entry.html' %}
+        {% include 'entry_homepage.html' %}
     {% endfor %}
         <ul class="pager">
             {% if env.prev is not none %}
@@ -55,20 +68,3 @@
         </ul>
 {% endif %}
 {% endblock %}
-
-{% block datetime -%}
-{% if entry is defined and entry.type != "page" %}
-Written on {{ entry.date.strftime("%a %d %B, %Y") }}.
-{% endif %}
-{%- endblock %}
-
-{% block tags -%}
-{% if entry is defined and entry.type != "page" and entry.tags %}
-<span>Tags:</span>
-<ul class="tags">
-    {% for link in entry.tags | tagify -%}
-    <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
-    {% endfor %}
-</ul>
-{% endif %}
-{%- endblock %}

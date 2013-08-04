@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block title %}Archive{% endblock %}
+
+{% block content %}
+    <div class="staticpage">
+        <h2>Archive</h2>
+        <table class="archive">
+        {% for year in env.globals.entrylist | archivesfor -%}
+        {% for month in year %}
+            <tr>
+            {%- if loop.first %}
+                <th class="new year">{{ year ~ ' ' ~ month.full }}</th>
+            {%- else %}
+                <th class="new month">{{ month.full }}</th>
+            {%- endif %}
+                <td></td>
+            </tr>
+            {% for entry in month.items %}
+            <tr>
+                <th class="new day">{{ entry.date.day }}</th>
+                <td><a href="{{ entry.permalink }}">{{ entry.title | e }}</a></td>
+            </tr>
+            {%- endfor -%}
+        {%- endfor -%}
+        {%- endfor %}
+        </table>
+    </div>
+{% endblock %}

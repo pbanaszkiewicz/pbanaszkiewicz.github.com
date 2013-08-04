@@ -1,0 +1,85 @@
+/* fonts */
+body {font: 400 16px/1.6em "Merriweather" serif;}
+h1 {font: 900 36px        "Merriweather" serif; margin: 2.5em 0 1.0em 0;}
+h2 {font: 900 1.5em/1.0em "Merriweather" serif; margin: 2.5em 0 1.0em 0;}
+h3 {font: 900 1.3em/1.5em "Merriweather" serif; margin: 2.5em 0 0.5em 0;}
+h4 {font: 900 1.2em/1.5em "Merriweather" serif; margin: 2.0em 0 0.5em 0;}
+h5 {font: 900 1.0em       "Merriweather" serif; margin: 2.5em 0 0     0;}
+h6 {font: 900 1.0em       "Merriweather" serif; margin: 2.5em 0 0     0;}
+strong, b {font-weight: 900;}
+
+/* sticky footer */
+html, body {height: 100%;}
+#wrapper {min-height: 100%; height: auto !important; height: 100%;
+          margin: 0 0 -130px; padding: 0 0 130px;}
+#footer-wrap {height: 130px; background-color: #2A6496; color: #FFF; margin-top: 20px;}
+/*@media (max-width: 767px) { #footer-wrap {margin: 0 -20px; padding: 0 20px;} }*/
+#footer {font-size: 14px; margin-top: 10px;}
+#footer a {color: #CCC;}
+#footer a:hover, #footer a:focus {color: #FFF;}
+
+/* menu */
+body {border-top: 6px solid #2A6496;}
+#menu {list-style: none outside none; padding: 0; margin: 0;}
+#menu li {display: table-cell; width: 1%; text-align: center;}
+#menu li a {display: block; padding: 20px 10px;}
+#menu li.active a {font-weight: 900;}
+
+/* top */
+#top div {text-align: center;}
+#top h1 {margin: 60px 0 60px 0;}
+
+/* content */
+.staticpage, .entry {line-height: 1.6em;}
+.staticpage h2, .entry h2 {margin: 40px 0 20px;}
+.staticpage h3, .entry h3 {margin: 34px 0 17px;}
+.staticpage h4, .entry h4 {margin: 28px 0 14px;}
+.staticpage h5, .entry h5 {margin: 22px 0 11px;}
+.staticpage h6, .entry h6 {margin: 16px 0 8px;}
+.staticpage  p, .entry  p {margin: 0 0 1.8em;}
+.staticpage .highlight, .entry .highlight {margin: 0 0 1.8em;}
+
+dt {font-weight: 900;}
+dd {margin: 0 0 14px 30px;}
+
+/* fixing docutils' ``code`` which surprisingly doesn't generate <code> */
+tt.literal {font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            padding: 2px 4px; font-size: 90%; white-space: nowrap;
+            border-radius: 4px; color: #C7254E; background-color: #F9F2F4;}
+
+/* comments */
+.comments {padding: 20px 0; border-top: 1px solid #2A6496;}
+
+/* author info */
+#author {font-size: 14px;}
+#author p {margin: 0; padding: 0;}
+#author img {margin-top: 34px; margin-left: 10px;}
+#author ul {list-style: none outside none; padding: 0; margin: 0;}
+#author li a {display: block; padding: 6px 10px;}
+
+/* date info */
+.dateinfo {font-style: italic; font-size: 14px; color: #888;}
+.dateinfo p {margin: 40px 20px 0;}
+.dateinfo ul {list-style: none outside none; padding: 0; margin: 0 20px;
+              font-size: 12px;}
+.dateinfo ul li {float: right; margin: 2px 0 2px 14px;}
+
+/* archive */
+table.archive th {text-align: center;}
+table.archive th.new.year,
+table.archive th.new.month {padding-top: 20px;}
+
+/* tags */
+#tagcloud {list-style: none; padding: 0; margin: 0;}
+#tagcloud li a {display: block; height: 36px; padding: 2px 10px;}
+#tagcloud li {float: left;}
+#tagcloud .tag-3 {font-size: 14px;}
+#tagcloud .tag-2 {font-size: 18px;}
+#tagcloud .tag-1 {font-size: 22px;}
+#tagcloud .tag-0 {font-size: 26px;}
+#tagcloud .tag--1 {font-size: 26px; font-weight: 900;}
+#tagcloud .tag--2 {font-size: 30px; font-weight: 900;}
+
+/* helpers */
+.pagemargin {margin: 40px 0 0;}
+.iconmiddle {vertical-align: middle;}
