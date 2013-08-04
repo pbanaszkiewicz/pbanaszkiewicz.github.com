@@ -1,11 +1,11 @@
 /* fonts */
-body {font: 400 16px/1.6em "Merriweather" serif;}
-h1 {font: 900 36px        "Merriweather" serif; margin: 2.5em 0 1.0em 0;}
-h2 {font: 900 1.5em/1.0em "Merriweather" serif; margin: 2.5em 0 1.0em 0;}
-h3 {font: 900 1.3em/1.5em "Merriweather" serif; margin: 2.5em 0 0.5em 0;}
-h4 {font: 900 1.2em/1.5em "Merriweather" serif; margin: 2.0em 0 0.5em 0;}
-h5 {font: 900 1.0em       "Merriweather" serif; margin: 2.5em 0 0     0;}
-h6 {font: 900 1.0em       "Merriweather" serif; margin: 2.5em 0 0     0;}
+body {font: 400 16px/1.6em "Merriweather";}
+h1 {font: 900 36px        "Merriweather"; margin: 2.5em 0 1.0em 0;}
+h2 {font: 900 1.5em/1.0em "Merriweather"; margin: 2.5em 0 1.0em 0;}
+h3 {font: 900 1.3em/1.5em "Merriweather"; margin: 2.5em 0 0.5em 0;}
+h4 {font: 900 1.2em/1.5em "Merriweather"; margin: 2.0em 0 0.5em 0;}
+h5 {font: 900 1.0em       "Merriweather"; margin: 2.5em 0 0     0;}
+h6 {font: 900 1.0em       "Merriweather"; margin: 2.5em 0 0     0;}
 strong, b {font-weight: 900;}
 
 /* sticky footer */
