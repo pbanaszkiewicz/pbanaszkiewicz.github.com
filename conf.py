@@ -9,20 +9,22 @@ STATIC = ['assets', ]
 AUTHOR = 'Piotr Banaszkiewicz'
 EMAIL = 'piotr@banaszkiewicz.org'
 
+TOP_HEADER = 'h2'
+
 METASTYLE = "native"
-FILTERS = ['reStructuredText', 'hyphenate', 'h2', 'typography']
-# FILTERS = ['reStructuredText', 'hyphenate', 'typography']
+FILTERS = ['reStructuredText', 'hyphenate', TOP_HEADER, 'typography']
+
 VIEWS = {
     '/': {'view': 'index', 'pagination': '/page/:num/', 'items_per_page': 5,
-    'filters': 'intro+2'},
+          'filters': 'intro+2'},
 
     '/blog/:year/:month/:day/:slug/': {'views': ['entry', 'draft']},
 
     '/tags/': {'view': 'tag', 'template': 'tags.html'},
     '/tag/:name/': {'view': 'tag', 'pagination': '/tag/:name/:num/'},
 
-    '/atom.xml': {'filters': ['h2', 'nohyphenate'], 'view': 'atom'},
-    '/rss.xml': {'filters': ['h2', 'nohyphenate'], 'view': 'rss'},
+    '/atom.xml': {'filters': [TOP_HEADER, 'nohyphenate'], 'view': 'atom'},
+    # '/rss.xml': {'filters': [TOP_HEADER, 'nohyphenate'], 'view': 'rss'},
 
     '/archive/': {'view': 'archive', 'template': 'archive.html'},
 
@@ -34,14 +36,17 @@ VIEWS = {
     '/:slug/': {'view': 'page'},
 
     # # per tag Atom or RSS feed. Just uncomment to generate them.
-    # '/tag/:name/atom/': {'filters': ['h2', 'nohyphenate'], 'view': 'atompertag'},
-    # '/tag/:name/rss/': {'filters': ['h2', 'nohyphenate'], 'view': 'rsspertag'},
+    '/tag/:name/atom.xml': {'filters': [TOP_HEADER, 'nohyphenate'],
+                            'view': 'atompertag'},
+    # '/tag/:name/rss.xml': {'filters': [TOP_HEADER, 'nohyphenate'],
+    #                        'view': 'rsspertag'},
 
     # # '/atom/full/' will give you a _complete_ feed of all your entries
-    # '/atom/full/': {'filters': 'h2', 'view': 'atom', 'num_entries': 1000},
+    # '/atom/full/': {'filters': TOP_HEADER, 'view': 'atom',
+    #                 'num_entries': 1000},
 
     # # a feed containing all entries tagges with 'python'
-    # '/rss/python/': {'filters': 'h2', 'view': 'rss',
+    # '/rss/python/': {'filters': TOP_HEADER, 'view': 'rss',
     #                  'if': lambda e: 'python' in e.tags}
 
     # # a full typography features entry including MathML and Footnotes
@@ -65,6 +70,9 @@ LANG = "en_US.utf8"
 DISQUS_SHORTNAME = "pbanaszkiewicz"
 
 DEPLOYMENT = {
-    "default": 'cp CNAME "$OUTPUT_DIR"; cp .nojekyll "$OUTPUT_DIR"; cp README.rst "$OUTPUT_DIR"; ghp-import -b master -p "$OUTPUT_DIR"',
+    "default": 'cp CNAME "$OUTPUT_DIR"; '
+               'cp .nojekyll "$OUTPUT_DIR"; '
+               'cp README.rst "$OUTPUT_DIR"; '
+               'ghp-import -b master -p "$OUTPUT_DIR"',
     "clean": "rm $OUTPUT_DIR -rf",
 }

@@ -17,14 +17,18 @@
 
 {% block dateinfo %}
 {% if entry is defined and entry.type != "page" %}
-    <p class="text-right">Written on<br>{{ entry.date.strftime("%a %d %B, %Y") }}.</p>
+    <div class="postdate">
+        <p>Written on<br>{{ entry.date.strftime("%a %d %B, %Y") }}.</p>
+    </div>
     {%- if entry.tags %}
-    <p class="text-right">Tags:</p>
-    <ul>
-        {% for link in entry.tags | tagify -%}
-        <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="posttags">
+        <p>Tags:</p>
+        <ul>
+            {% for link in entry.tags | tagify -%}
+            <li><a href="{{ env.path + link.href }}" rel="tag">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endif -%}
 {% endif %}
 {% endblock %}

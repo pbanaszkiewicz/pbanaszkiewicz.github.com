@@ -19,7 +19,7 @@ Installation
 Requirements:
 
 * `Acrylamid`_ for blog software
-* `Docutils_ for rsT format parsing
+* `Docutils`_ for rsT format parsing
 * `ghp import`_ for deploying to `master_` branch
 * `Pygments`_ for colorized code output
 
