@@ -60,8 +60,6 @@ VIEWS = {
     '/search/': {'view': 'search', 'filters': 'strip+pre'},
 }
 
-# SUMMARIZE_LINK = INTRO_LINK = '<a href="%s">&hellip;</a>'
-
 THEME = 'theme'
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%d.%m.%Y, %H:%M'
