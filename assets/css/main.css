@@ -39,6 +39,8 @@ body {border-top: 6px solid #2A6496;}
 .staticpage h5, .entry h5 {margin: 22px 0 11px;}
 .staticpage h6, .entry h6 {margin: 16px 0 8px;}
 .staticpage  p, .entry  p {margin: 0 0 1.8em;}
+.staticpage  ol, .entry  ol {margin: 0 0 1.8em;}
+.staticpage  ul, .entry  ul {margin: 0 0 1.8em;}
 .staticpage .highlight, .entry .highlight {margin: 0 0 1.8em;}
 
 dt {font-weight: 900;}
