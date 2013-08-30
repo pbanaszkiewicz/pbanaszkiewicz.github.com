@@ -227,6 +227,10 @@ most of available |ST3| packages.
 Very popular and quite easy for basic application.  There's also some payable
 `SublimeGit`_ plugin I haven't tried out yet. (It seems nice, though!)
 
+**Update 30.08.2013:** I switched to `SublimeGit`_ plugin.  It's very similar
+to vim's fugitive, so I'm already feeling good about it.  Definitely well spent
+money on an alternative to `Git`_.
+
 `GitGutter`_
 ************
 

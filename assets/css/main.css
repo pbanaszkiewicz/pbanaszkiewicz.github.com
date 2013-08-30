@@ -33,14 +33,13 @@ body {border-top: 6px solid #2A6496;}
 
 /* content */
 .staticpage, .entry {line-height: 1.6em;}
-.staticpage h2, .entry h2 {margin: 40px 0 20px;}
-.staticpage h3, .entry h3 {margin: 34px 0 17px;}
-.staticpage h4, .entry h4 {margin: 28px 0 14px;}
-.staticpage h5, .entry h5 {margin: 22px 0 11px;}
-.staticpage h6, .entry h6 {margin: 16px 0 8px;}
+.staticpage h2, .entry h2 {margin: 46px 0 20px;}
+.staticpage h3, .entry h3 {margin: 40px 0 17px;}
+.staticpage h4, .entry h4 {margin: 34px 0 14px;}
+.staticpage h5, .entry h5 {margin: 28px 0 11px;}
+.staticpage h6, .entry h6 {margin: 22px 0 8px;}
 .staticpage  p, .entry  p {margin: 0 0 1.8em;}
 .staticpage  ol, .entry  ol {margin: 0 0 1.8em;}
-.staticpage  ul, .entry  ul {margin: 0 0 1.8em;}
 .staticpage .highlight, .entry .highlight {margin: 0 0 1.8em;}
 
 dt {font-weight: 900;}
@@ -68,7 +67,7 @@ tt.literal {font-family: Menlo, Meslo, Consolas, "Courier New", monospace;
 .warning {border-color: #eed3d7;}
 .note p, .warning p {padding: 15px; margin: 0;}
 .note .highlight, .warning .highlight {margin: 0 15px;}
-p.admonition-title {margin: 0; padding: 10px 15px;
+p.admonition-title {margin: 0; padding: 6px 15px;
                     border-bottom: 1px solid transparent;
                     border-top-right-radius: 3px;
                     border-top-left-radius: 3px;
