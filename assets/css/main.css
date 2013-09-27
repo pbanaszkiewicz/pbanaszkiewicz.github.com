@@ -10,11 +10,11 @@ strong, b {font-weight: 900;}
 
 /* sticky footer */
 html, body {height: 100%;}
-#wrapper {min-height: 100%; height: auto !important; height: 100%;
-          margin: 0 0 -150px; padding: 0 0 150px;}
-#footer-wrap {height: 150px; background-color: #2A6496; color: #FFF;
-              margin-top: 20px;}
-@media (max-width: 767px) { #footer-wrap {margin: 0 -20px; padding: 0 20px;} }
+#content-wrapper {min-height: 100%; height: auto !important; height: 100%;
+                  margin: 0 0 -150px; padding: 0 0 150px;}
+#footer-wrapper {height: 150px; background-color: #2A6496; color: #FFF;
+                 margin-top: 20px;}
+@media (max-width: 767px) { #footer-wrapper {margin: 0 -20px; padding: 0 20px;} }
 #footer {font-size: 14px; margin-top: 10px;}
 #footer a {color: #CCC;}
 #footer a:hover, #footer a:focus {color: #FFF;}
@@ -27,9 +27,12 @@ body {border-top: 6px solid #2A6496;}
 #menu li a {display: block; padding: 20px 10px;}
 #menu li.active a {font-weight: 900;}
 
-/* top */
-#top div {text-align: center;}
-#top h1 {margin: 60px 0 60px 0;}
+/* top-headline */
+#top-headline div {text-align: center;}
+#top-headline h1 {margin: 60px 0 60px 0;}
+@media (max-width: 767px) {
+    #top-headline h1 {margin: 10px 0 30px 0;}
+}
 
 /* content */
 .staticpage, .entry {line-height: 1.6em;}
@@ -44,6 +47,13 @@ body {border-top: 6px solid #2A6496;}
 
 dt {font-weight: 900;}
 dd {margin: 0 0 14px 30px;}
+
+/* nice post date formatting */
+.entry .headline {margin-bottom: 4px;}
+@media (max-width: 767px) {
+    .entry .headline {margin-top: 20px;}
+}
+.entry .dateinfo {font-style: italic; color: #888; font-size: 14px;}
 
 /* fixing docutils' ``code`` which surprisingly doesn't generate <code> */
 tt.literal {font-family: Menlo, Meslo, Consolas, "Courier New", monospace;
@@ -89,12 +99,13 @@ p.admonition-title {margin: 0; padding: 6px 15px;
 #author img {margin-top: 34px; margin-left: 10px;}
 #author ul {list-style: none outside none; padding: 0; margin: 0;}
 #author li a {display: block; padding: 6px 10px;}
+/* TODO: fix on medium size screens */
 @media (max-width: 767px) {
     #author img { margin: 0; text-align: right; }
 }
 
-/* date info */
-.dateinfo {font-style: italic; font-size: 14px; color: #888;
+/* entry meta informations */
+/*.dateinfo {font-style: italic; font-size: 14px; color: #888;
            text-align: right;}
 @media (max-width: 767px) {
     .dateinfo .postdate { text-align: left; width: 50%; float: left; }
@@ -103,7 +114,19 @@ p.admonition-title {margin: 0; padding: 6px 15px;
 .dateinfo p {margin: 40px 20px 0;}
 .dateinfo ul {list-style: none outside none; padding: 0; margin: 0 20px;
               font-size: 12px;}
-.dateinfo ul li {float: right; margin: 2px 0 2px 14px;}
+.dateinfo ul li {float: right; margin: 2px 0 2px 14px;}*/
+.entrymeta {font-style: italic; font-size: 14px; color: #888;
+            text-align: right;}
+.entrymeta p {margin: 40px 20px 0;}
+.entrymeta ul {list-style: none outside none; padding: 0; margin: 0 20px;
+              font-size: 12px;}
+.entrymeta ul li {float: right; margin: 2px 0 2px 14px;}
+@media (max-width: 991px) {
+  .entrymeta {text-align: left;}
+  .entrymeta p {display: inline; margin: 0 20px 0 0; float: left;}
+  .entrymeta ul {display: inline; margin: 0;}
+  .entrymeta ul li {float: left; margin: 0 10px;}
+}
 
 /* archive */
 table.archive th {text-align: center;}

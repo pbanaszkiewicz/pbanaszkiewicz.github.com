@@ -1,4 +1,5 @@
-<div class="entry homepage">
-    <h2><a href="{{ env.path + entry.permalink }}" rel="bookmark canonical">{{ entry.title }}</a></h2>
+  <div class="entry homepage">
+    <h2 class="headline"><a href="{{ env.path + entry.permalink }}" rel="bookmark canonical">{{ entry.title }}</a></h2>
+    <p class="dateinfo">On {{ entry.date.strftime("%A %d %b, %Y") }}</p>
     {{ entry.content }}
-</div>
+  </div>

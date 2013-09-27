@@ -15,11 +15,8 @@
     {%- endif -%}
 {% endblock %}
 
-{% block dateinfo %}
+{% block entrymeta %}
 {% if entry is defined and entry.type != "page" %}
-    <div class="postdate">
-        <p>Written on<br>{{ entry.date.strftime("%a %d %B, %Y") }}.</p>
-    </div>
     {%- if entry.tags %}
     <div class="posttags">
         <p>Tags:</p>
@@ -34,7 +31,7 @@
 {% endblock %}
 
 {% block content %}
-{% if entry is defined %}
+{% if entry is defined -%}
     {% if entry.type == "page" %}
         {% include 'staticpage.html' %}
     {% else %}
