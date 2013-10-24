@@ -4,7 +4,9 @@
 
 SITENAME = 'Blog'
 WWW_ROOT = 'http://piotr.banaszkiewicz.org/'
-STATIC = ['assets', ]
+STATIC = [
+    'assets',
+]
 
 AUTHOR = 'Piotr Banaszkiewicz'
 EMAIL = 'piotr@banaszkiewicz.org'
@@ -21,7 +23,7 @@ VIEWS = {
     '/blog/:year/:month/:day/:slug/': {'views': ['entry', 'draft']},
 
     '/tags/': {'view': 'tag', 'template': 'tags.html'},
-    '/tag/:name/': {'view': 'tag', 'pagination': '/tag/:name/:num/'},
+    '/tags/:name/': {'view': 'tag', 'pagination': '/tags/:name/:num/'},
 
     '/atom.xml': {'filters': [TOP_HEADER, 'nohyphenate'], 'view': 'atom'},
     # '/rss.xml': {'filters': [TOP_HEADER, 'nohyphenate'], 'view': 'rss'},

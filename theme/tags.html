@@ -8,7 +8,7 @@
         <h2>Tags</h2>
         <ul id="tagcloud">
             {%- for tag in env.tag_cloud %}
-            <li class="tag-{{ tag.step }}"><a href="/tag/{{ tag.name | safeslug }}">{{ tag.name }}</a></li>
+            <li class="tag-{{ tag.step }}"><a href="/tags/{{ tag.name | safeslug }}">{{ tag.name }}</a></li>
             {%- endfor %}
         </ul>
         {% else %}
