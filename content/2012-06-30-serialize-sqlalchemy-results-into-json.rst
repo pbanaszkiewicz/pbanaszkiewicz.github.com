@@ -30,6 +30,12 @@ And here's one of your views, which returns all the available blog posts:
 
 But unfortunately SQLAlchemy results cannot be serialized to JSON. What to do?
 
+.. note::
+    Recently a great Python project for serialization surfaced:
+    `Marshmallow <https://marshmallow.readthedocs.org/en/latest/>`_.  It is
+    ORM / framework agnostic, so with very little effort should work with your
+    SQLAlchemy project!
+
 You can spend some time and extend SQLAlchemy's pickle serializer extension
 (it's awkward to extend what's already extended, but nevermind), however
 there's a quicker way. Just make your model class inherit from this base
