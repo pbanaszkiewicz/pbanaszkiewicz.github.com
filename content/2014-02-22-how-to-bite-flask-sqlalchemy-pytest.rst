@@ -312,4 +312,78 @@ If using ``yield``, the above fixture example looks a lot clearer now:
 Sewing it all together: Flask, |SA| and pytest
 ==============================================
 
-Blah blah
+Actual application
+------------------
+
+1. Use `application factory`_ to easily create Flask application object.  This
+   will be used in different parts of your codebase, like tests or dev server.
+2. Create global `scoped_session`_ object that spawns actual |SA| sessions when
+   accessed.  Use ``scopefunc`` keyword argument to provide hashable function
+   that's used to recognize context switches.
+3. Don't bind that ``scoped_session`` object to any engine yet.  Bind it in
+   your application factory using `scoped_session.configure() <http://docs.sqlalchemy.org/en/rel_0_9/orm/session.html#sqlalchemy.orm.scoping.scoped_session.configure>`__.
+4. During ``app.teardown_appcontext`` `remove <http://docs.sqlalchemy.org/en/rel_0_9/orm/session.html#sqlalchemy.orm.scoping.scoped_session.remove>`__
+   database sessions.
+
+Tests with pytest
+-----------------
+
+This one's more complicated, so I'll paste some boilerplate below.
+
+1. In your ``conftest.py`` prepare one session-scoped fixture that creates your
+   app (using factory), creates all the tables, explicitely pops a connection,
+   binds global ``scoped_session`` to that connection and yields that app
+2. Prepare second fixture, that creates a new transaction, new application
+   context and yields database session.
+
+Here's promised boilerplate:
+
+.. code-block:: python
+
+    @pytest.yield_fixture(scope="session")
+    def app():
+        """
+        Creates a new Flask application for a test duration.
+        Uses application factory `create_app`.
+        """
+        _app = create_app("testingsession", config_object=TestConfig)
+
+        # Base is declarative_base()
+        Base.metadata.create_all(bind=_app.engine)
+        _app.connection = _app.engine.connect()
+
+        # No idea why, but between this app() fixture and session()
+        # fixture there is being created a new session object
+        # somewhere.  And in my tests I found out that in order to
+        # have transactions working properly, I need to have all these
+        # scoped sessions configured to use current connection.
+        your_application.app.DbSession.configure(bind=_app.connection)
+
+        yield _app
+
+        # the code after yield statement works as a teardown
+        _app.connection.close()
+        Base.metadata.drop_all(bind=_app.engine)
+
+
+    @pytest.yield_fixture(scope="function")
+    def session(app):
+        """
+        Creates a new database session (with working transaction)
+        for a test duration.
+        """
+        app.transaction = app.connection.begin()
+
+        # pushing new Flask application context for multiple-thread
+        # tests to work
+        ctx = app.app_context()
+        ctx.push()
+
+        session = your_application.app.DbSession()
+
+        yield session
+
+        # the code after yield statement works as a teardown
+        app.transaction.close()
+        session.close()
+        ctx.pop()
