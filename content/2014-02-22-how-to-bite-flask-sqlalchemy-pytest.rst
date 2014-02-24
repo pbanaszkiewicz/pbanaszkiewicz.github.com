@@ -101,10 +101,25 @@ your views.
 after explaining what are Flask application and request contexts and how to
 work with them.
 
-Transactions
-------------
+Transactions in |SA|
+====================
 
-Blah BLah Blah
+|SA| supports at least two different kinds of transactions.  The most popular
+type is `Session based transaction`_:
+
+.. _Session based transaction: http://docs.sqlalchemy.org/en/rel_0_9/orm/session.html#committing
+
+.. code-block:: python
+
+    u1 = User(name="Piotr", email="test@example.org")
+    session.add(u1)
+    try:
+        session.commit()
+    except sqlalchemy.exc.IntegrityError:
+        session.rollback()
+
+The `second type <http://docs.sqlalchemy.org/en/rel_0_9/core/connections.html#using-transactions>`__ is more superior.  It can roll back even committed
+session changes!  It's really powerful for testing purposes.
 
 What are Flask application and request contexts
 ===============================================
@@ -268,7 +283,7 @@ that builds your |SA| session and manages transactions.
 Transactions in tests
 ---------------------
 
-Shortly: it's way faster to rollback all the changes from database than to
+Shortly: it's way faster to roll back all the changes from database than to
 recreate whole database from scratch on every new test.
 
 
@@ -290,5 +305,11 @@ If using ``yield``, the above fixture example looks a lot clearer now:
 
         yield db
 
-        # everything after ``yield`` statement works as a teardown code
+        # everything after yield statement works as a teardown code
         db.close()
+
+
+Sewing it all together: Flask, |SA| and pytest
+==============================================
+
+Blah blah
