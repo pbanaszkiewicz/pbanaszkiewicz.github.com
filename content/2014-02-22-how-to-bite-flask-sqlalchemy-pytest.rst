@@ -101,6 +101,11 @@ your views.
 after explaining what are Flask application and request contexts and how to
 work with them.
 
+Transactions
+------------
+
+Blah BLah Blah
+
 What are Flask application and request contexts
 ===============================================
 
@@ -226,4 +231,64 @@ Look at `fixtures`_ docs for more examples.
 Fixture scope
 -------------
 
-Blah blah blah
+Every fixture can be set for a ``session`` scope, ``module`` scope, or
+``function`` scope.  This means, that the fixture is only run once per testing
+session, or once per whole module (containing tests), or once for every test
+function.
+
+Take for example this ``db_connect`` fixture.
+
+.. code-block:: python
+
+    import pytest
+
+    @pytest.fixture(scope="session")
+    def db_connect(request):
+        db = sql.connect()
+
+        def teardown():
+            db.close()
+        request.add_teardown(teardown)
+
+        return db
+
+It's dumb and won't work, but I hope you get the gist.  Even if you have
+a thousand tests that use this fixture, it will be invoked only once, then
+memorized (cached).
+
+.. note::
+    This small fixture uses another fixture!  `request <http://pytest.org/latest/builtin.html#_pytest.python.FixtureRequest>`__ is a built-in pytest fixture that helps you with teardowns.
+
+I suggest to (at least) create a session-scoped fixture that builds your Flask
+application object (using `application factory`_), and a session-scoped fixture
+that builds your |SA| session and manages transactions.
+
+.. _application factory: http://flask.pocoo.org/docs/patterns/appfactories/
+
+Transactions in tests
+---------------------
+
+Shortly: it's way faster to rollback all the changes from database than to
+recreate whole database from scratch on every new test.
+
+
+Cooler fixtures
+---------------
+
+I really like the `fixtures <http://pytest.org/latest/yieldfixture.html>`__
+that leverage Python's ``yield`` statement.
+
+If using ``yield``, the above fixture example looks a lot clearer now:
+
+.. code-block:: python
+
+    import pytest
+
+    @pytest.yieldfixture(scope="session")
+    def db_connect(request):
+        db = sql.connect()
+
+        yield db
+
+        # everything after ``yield`` statement works as a teardown code
+        db.close()
