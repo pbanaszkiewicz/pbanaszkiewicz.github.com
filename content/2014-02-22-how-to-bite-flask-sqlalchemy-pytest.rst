@@ -4,11 +4,12 @@ How to bite Flask, SQLAlchemy and pytest all at once
 :tags: [Python, pytest, Flask, SQLAlchemy, good practices]
 :date: 22.02.2014
 
-As a person who started with Django, I had some hard time figuring out how
+As a person who started with `Django`_, I had some hard time figuring out how
 application and request contexts work in `Flask`_.  I think I finally got to
 understand them.  I also learnt how to use |SA|_'s scoped sessions properly
 and how to test my REST applications with `pytest`_ efficiently.
 
+.. _Django: https://www.djangoproject.com/
 .. _Flask: http://flask.pocoo.org/
 .. _pytest: http://pytest.org/latest/
 
@@ -20,7 +21,6 @@ Here's what I got to know, split into topics.
     thread-local stuff in your code.  But I think that it's one of the best
     approaches.
 
-.. _Django: https://www.djangoproject.com/
 .. |SA| replace:: SQLAlchemy
 .. _SA: http://docs.sqlalchemy.org/
 .. _SQLAlchemy: http://docs.sqlalchemy.org/
@@ -97,9 +97,8 @@ There's only one part missing... how does scoped session know when to "spawn"
 a different session?  It somehow has to recognize that a new user is requesting
 your views.
 
-`I'll come back to that <zipping-flask-sa-together>`_
-after explaining what are Flask application and request contexts and how to
-work with them.
+I'll come back to that in later after explaining what are Flask application
+and request contexts and how to work with them.
 
 Transactions in |SA|
 ====================
@@ -165,9 +164,9 @@ For example, imagine you have a view that adds a new blog post to your site:
     def blogpost_view():
         return "New blog post: {}".format(request.form)
 
-Flask internals ensure that you do not access a different's request data.  Two
-requests may be simultaneous, yet you will access exactly the correct request
-in your code.
+Flask internals ensure that you **do not** access a different request's data.
+Two requests may be simultaneous, yet you will access exactly the correct
+request in your code.
 
 .. note::
     New request context creates new application context, if the latter is not
@@ -186,7 +185,7 @@ Take a closer look at `scoped_session`_.  You can see it has a `scopefunc`_
 argument:
 
     ``scopefunc`` – optional function which defines the current scope.  If not
-    passed, the ``scoped_session`` object assumes “thread-local” scope, and
+    passed, the ``scoped_session`` object assumes "thread-local" scope, and
     will use a Python ``threading.local()`` in order to maintain the current
     ``Session``.  If passed, the function should return a hashable token;
     this token will be used as the key in a dictionary in order to store and
@@ -214,9 +213,9 @@ Testing everything
 ==================
 
 Because of the aforementioned flexibility that `Flask`_ and |SA|_ have, I had
-really hard time figuring the whole thing out.  **Testing is very important**,
-and with the help of wonderful Python libraries like `pytest`_ it's actually
-a pleasure.
+really hard time figuring how to test the whole thing.  **Testing is very
+important**, and with the help of wonderful Python libraries like `pytest`_
+it actually becomes a pleasure.
 
 Still, when trying out `pytest`_ for a first time, there is a small learning
 curve if you come from Java-based `unittest`_ world.
@@ -247,9 +246,9 @@ Fixture scope
 -------------
 
 Every fixture can be set for a ``session`` scope, ``module`` scope, or
-``function`` scope.  This means, that the fixture is only run once per testing
-session, or once per whole module (containing tests), or once for every test
-function.
+``function`` scope.  This means, that the fixture is **only run once** per
+testing session, or once per whole module (containing tests), or once for
+every test function.
 
 Take for example this ``db_connect`` fixture.
 
@@ -336,9 +335,52 @@ This one's more complicated, so I'll paste some boilerplate below.
 2. Prepare second fixture, that creates a new transaction, new application
    context and yields database session.
 
-Here's promised boilerplate:
+Boilerplate
+-----------
+
+Here's that promised boilerplate.  First application factory ``create_app``:
 
 .. code-block:: python
+
+    # database session registry object, configured from
+    # create_app factory
+    DbSession = scoped_session(
+        sessionmaker(),
+        # __ident_func__ should be hashable, therefore used
+        # for recognizing different incoming requests
+        scopefunc=_app_ctx_stack.__ident_func__
+    )
+
+    def create_app(name_handler, config_object):
+        """
+        Application factory
+
+        :param name_handler: name of the application.
+        :param config_object: the configuration object.
+        """
+        app = Flask(name_handler)
+        app.config.from_object(config_object)
+        app.engine = create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
+
+        global DbSession
+        # BaseQuery class provides some additional methods like
+        # first_or_404() or get_or_404() -- borrowed from
+        # mitsuhiko's Flask-SQLAlchemy
+        DbSession.configure(bind=app.engine, query_cls=BaseQuery)
+
+        @app.teardown_appcontext
+        def teardown(exception=None):
+            global DbSession
+            if DbSession:
+                DbSession.remove()
+
+        return app
+
+And test configuration from ``conftest.py``:
+
+.. code-block:: python
+
+    from your_application.global import create_app, DbSession
 
     @pytest.yield_fixture(scope="session")
     def app():
@@ -357,7 +399,7 @@ Here's promised boilerplate:
         # somewhere.  And in my tests I found out that in order to
         # have transactions working properly, I need to have all these
         # scoped sessions configured to use current connection.
-        your_application.app.DbSession.configure(bind=_app.connection)
+        DbSession.configure(bind=_app.connection)
 
         yield _app
 
@@ -379,7 +421,7 @@ Here's promised boilerplate:
         ctx = app.app_context()
         ctx.push()
 
-        session = your_application.app.DbSession()
+        session = DbSession()
 
         yield session
 
