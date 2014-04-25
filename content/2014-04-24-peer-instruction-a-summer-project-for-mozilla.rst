@@ -87,3 +87,6 @@ If I have enough time and knowledge, I'll implement:
 - translations
 
 It's going to be exciting summer.  I'm looking forward to it! :)
+
+**EDIT:** I forgot to include the link to the Git repository of my project.
+Here it is: https://github.com/pbanaszkiewicz/peer-instruction.
