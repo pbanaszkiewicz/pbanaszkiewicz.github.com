@@ -88,5 +88,16 @@ If I have enough time and knowledge, I'll implement:
 
 It's going to be exciting summer.  I'm looking forward to it! :)
 
-**EDIT:** I forgot to include the link to the Git repository of my project.
-Here it is: https://github.com/pbanaszkiewicz/peer-instruction.
+Contributing
+============
+
+I welcome and highly appreciate any feedback, ideas, suggestions, or
+complaints.  I released publicly `my proposal`_, so you can comment it or even
+fork and make a better one.
+
+.. _my proposal: https://gist.github.com/pbanaszkiewicz/11292070
+
+I also want to share the link to the `Git repository`_, where my work will
+reside.  Feel free to send pull requests :)
+
+.. _git repository: https://github.com/pbanaszkiewicz/peer-instruction
