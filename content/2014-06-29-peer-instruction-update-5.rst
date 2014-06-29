@@ -2,7 +2,7 @@ Peer instruction: update 5
 ##########################
 
 :tags: [peer instruction, javascript, mozilla, gsoc]
-:date: 22.06.2014
+:date: 29.06.2014
 
 This is gonna be a short one.  Because of exams, I have to study a lot.  And
 because there was not much progress on `Pitt`_ during this week.
