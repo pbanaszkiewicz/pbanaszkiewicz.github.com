@@ -2,7 +2,7 @@ Peer instruction: update 9 - the end of Summer
 ##############################################
 
 :tags: [peer instruction, javascript, mozilla, gsoc]
-:date: 10.08.2014
+:date: 11.08.2014
 
 This summer was great.  I'm really glad I had the chance to work with Mozilla
 Science Lab on bringing a new teaching tool.
