@@ -9,11 +9,11 @@ Peer instruction: update 8
 There's still so much work to do on Pitt I'm sure I'll be working on it after
 the GSoC 2014 is done.
 
-Before the soft pencils-down date I want to release one last version, `v0.5`_
+Before the soft pencils-down date I want to release one last version, `v0.5.0`_
 (this week) and then work on documentation improvements (probably will release
 additional `v0.5.1`_ then).
 
-.. _v0.5: https://github.com/pbanaszkiewicz/pitt/milestones/v0.5
+.. _v0.5.0: https://github.com/pbanaszkiewicz/pitt/milestones/v0.5.0
 .. _v0.5.1: https://github.com/pbanaszkiewicz/pitt/milestones/v0.5.1
 
 Features not coming into Pitt this Summer
