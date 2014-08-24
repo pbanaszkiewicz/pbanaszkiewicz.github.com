@@ -262,7 +262,8 @@ Take for example this ``db_connect`` fixture.
 
         def teardown():
             db.close()
-        request.add_teardown(teardown)
+        # request.add_teardown(teardown)  # no "add_teardown", see comments
+        request.addfinalizer(teardown)
 
         return db
 
