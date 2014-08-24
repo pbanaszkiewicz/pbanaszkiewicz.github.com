@@ -77,7 +77,7 @@ application context:
     db = SQLAlchemy()
     def create_app():
         app = Flask(__name__)
-        db.init_app()
+        db.init_app(app)
         with app.test_request_context():
             db.create_all()
         return app
