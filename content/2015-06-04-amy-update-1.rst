@@ -1,0 +1,98 @@
+Amy update #1
+#############
+
+:tags: [gsoc, swcarpentry, django]
+:date: 04.06.2015
+
+We're soon to release `Amy v0.3`_, which should include some exciting features.
+
+.. _Amy v0.3: https://github.com/swcarpentry/amy/milestones/v0.3
+
+New features
+============
+
+Autocompletion
+    It's now possible to type a fragment of what you're looking for and then
+    simply select from a drop-down list.
+
+Page footer
+    The new footer displays current Amy version.
+
+Country representation
+    Countries in Amy are now internally represented in `ISO 3166-1`_ format.
+
+New "+" button in top-nav
+    It allows to add a new event, site or person. Or even multiple persons.
+
+The dashboard page has proper title
+    It's not "Amy: None" anymore.
+
+Stripped down `Makefile`
+    Some actions it included were not longer relevant.
+
+Templates with the same content were merged
+    It's not a change to the end-user.
+
+Lots of small interface changes
+    Including switch from links to buttons in some cases, easier event page
+    validation, better display of events on the fron page, better display of
+    people on the person's listing, links for persons or tasks or webpages,
+    and more…
+
+Event invoiced field
+    Instead of "fee paid?", we now call it "invoiced?".  Why the change?
+    Because `NumFOCUS`_ handles invoicing, not Amy.  We only need to know if
+    we should list the event as uninvoiced or not.
+
+Contributor guidelines
+    We now have `guidelines`_ for contributors.
+
+.. _ISO 3166-1: https://en.wikipedia.org/wiki/ISO_3166-1
+.. _NumFOCUS: http://numfocus.org/
+.. _guidelines: https://github.com/swcarpentry/amy/blob/master/CONTRIBUTING.md
+
+In the oven
+===========
+
+The list above is not complete.  We still have about 3-4 days to include other
+nice features:
+
+- awarding badges from badge details page (done)
+- awarding badges from user edit page (work in progress)
+- setting permissions and passwords (done, awaiting feedback)
+
+What we're going to miss
+========================
+
+We probably won't implement `addition of new skills`_.  At least I didn't see
+a pull-request for it.
+
+.. _addition of new skills: https://github.com/swcarpentry/amy/issues/28
+
+Features for v0.4
+=================
+
+`DataTables`_. It's a must-have! Many feature requests would be solved by
+simply introducing these tables.  We may leverage autocompletion backend for
+serving via Ajax, but I didn't quite look into the matter yet.
+
+.. _DataTables: http://datatables.net/
+
+Thoughts
+========
+
+1. We now have new admins, including woman named Amy.  This causes some
+   "namespace" conflicts.  In v0.4 we might switch to capitalized AMY for the
+   software name.  I proposed an acronym for that ("AdMinister Yourself"), but
+   it's not what I think is good acronym.  I failed at finding others, though.
+   Also, recursive acronym didn't fit.
+
+2. Feature freeze. I think we need it.  We don't want to incorporate stuff
+   that's not thought-through.
+
+3. Maybe smaller release periods, with smaller upgrades.  With the current
+   pace, Amy would gain 0.1 every month or even less.
+
+4. I have exams soon.  I received credits for multiple academic projects for
+   the current semester, so I'm only 2 small tests away from the exams.  Gotta
+   start preparing…
