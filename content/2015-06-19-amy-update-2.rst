@@ -73,6 +73,9 @@ Link to event's repository and it's website
     link to the event's website (because it's way easier to fact-check the
     website than the repo).
 
+**Update 19.06.2015**: I forgot to mention that we moved servers! We're now
+using Rackspace VPS and have a very clean deployment, plus we're SSL-only!
+
 .. _DataTables: http://datatables.net/
 .. _django-filter: http://django-filter.readthedocs.org/
 
