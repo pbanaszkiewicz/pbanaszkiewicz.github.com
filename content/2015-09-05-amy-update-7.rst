@@ -1,0 +1,64 @@
+AMY update #7
+#############
+
+:tags: [gsoc, swcarpentry, django]
+:date: 05.09.2015
+
+With a week of delay (3 weeks after v0.8 release), I finally released AMY
+`v0.9`_ today.
+
+The list of changes for this release doesn't contain one big thing I was hoping
+for, but it's still decent.
+
+This is also the last release that (partly) took place during Google Summer of
+Code 2015.
+
+.. _v0.9: https://github.com/swcarpentry/amy/milestones/v0.9
+
+Google Summer of Code 2015
+==========================
+
+I'd really like to thank everyone who helped me during this Summer:
+
+* Raniere Silva for keeping eye on the participants' reminders and for so many
+  friendly chats over these months
+* Greg Wilson for mentoring me and for lots of enjoyable meetings
+* W. Trevor King for introducing me to some very advanced git methods
+* my application's users: Amy, Giacomo, Maneesha, Tracy and others, for
+  providing me with excellent feedback.
+
+This was incredible Summer; I learned a lot and had so much fun. That's great
+to see that we'll release AMY `v1.0`_ soon as a wrap up of 4 or 5 months of
+work.
+
+.. _v1.0: https://github.com/swcarpentry/amy/milestones/v1.0
+
+Bug fixes
+=========
+
+Okay, back to the change log.
+
+* Some workshop URLs weren't translated between repository and website
+  versions. This is now fixed and every workshop with one of these links will
+  automatically display the other link as well.
+
+* It happened that users put whole links into ``Host.domain`` (in the form
+  ``https://domain.tld``).  This caused errors in many places where we wanted
+  to display link to that ``Host``.  The issue is now fixed: users aren't
+  allowed to put protocols or trailing slashes into ``Host.domain``.
+
+* Some management commands were broken due to the fact that we switched
+  underlying methods to use API endpoints, but we didn't change the commands
+  themselves.
+
+Feature(s)
+==========
+
+This release was focused on getting permissions sorted out and adding read-only
+access to people from Software-Carpentry Foundation Steering Committee.
+
+We had to cut out the another exciting feature: workshop requests, profile
+update requests.  The Pull Request for this feature is very big and we'll
+release it in `v0.9.5`_ somewhere in the next week.
+
+.. _v0.9.5: https://github.com/swcarpentry/amy/milestones/v0.9.5
