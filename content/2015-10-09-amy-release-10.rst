@@ -1,0 +1,102 @@
+AMY release v1.0
+################
+
+:tags: [swcarpentry, django]
+:date: 09.10.2015
+
+That was a looong ride, but we're finally here! AMY is mature enough to be
+given the `v1.0`_ tag.
+
+This will be a joined release notes to multiple `releases`_:
+
+* v0.9.1
+* v0.9.2
+* v0.9.5
+* v0.9.6
+* v0.9.7
+* and v1.0.0
+
+.. _releases: https://github.com/swcarpentry/amy/releases
+.. _v1.0: https://github.com/swcarpentry/amy/milestones/v1.0
+
+v0.9.1
+======
+
+* Greg Wilson has worked on the "problems" page: switched its layout to
+  3-column, added better email messages, etc.
+* He also extended our API to return airport's country.
+
+v0.9.2
+======
+
+* I hot-fixed an issue with creating M2M with intermediary model in model forms
+  (basically impossible, we have to do this manually).
+
+v0.9.5
+======
+
+* This release adds workshop request forms and profile update request form to
+  AMY.
+
+v0.9.6
+======
+
+* I hot-fixed a bug with settings: we should load more email settings from
+  environmental variables in order to use emails from Django.
+
+v0.9.7
+======
+
+* I added a new country: 'Online' (for international / online events, like
+  some Instructor Trainings).
+* The dashboard was changed to show not only upcoming, but also ongoing
+  workshops (in the same column).
+* Greg added some helper commands to report inconsistencies in PDF
+  certificates for instructors.
+* He also removed old command used for checking AMY's database against SWC
+  site's archive.  Site has moved to use AMY's API, so the archive was gone and
+  the command was made redundant.
+* I updated `check.py` script (used for checking workshop settings correctness)
+  from `workshop-template` repository.
+* Greg cleared up titles of forms introduced in v0.9.5.
+* I split these forms' templates and added SWC and DC logos to them.
+
+v1.0.0
+======
+
+Bug fixes
+~~~~~~~~~
+
+* Bulk-uploaded CSVs with entries that contained empty rows (for example:
+  ``,,,,,,``) were treated as correct, but not anymore.
+* "Artificial" country European Union had been removed and was brought back
+  since some hosts were using it.
+* API now returns website URLs to events instead of original URLs.
+
+New features
+~~~~~~~~~~~~
+
+* We have a new database for development use (I need to switch to fixtures
+  some day…).
+* I changed the way AMY handles event URLs:
+
+  * admins cannot use GitHub repository URL for event's URL
+  * migration was used to change all URLs to website-URL format (if possible)
+  * I also fixed import/update from URL feature to auto-select country if possible
+  * …and to auto-use correct website URL instead of repository URL.
+
+* AMY auto-counts event attendees if provided with a list of attendees (for
+  example via bulk-upload).
+* External links now open in new tabs.
+* Now there are more options to Event.invoice (for example with reason for
+  lack of invoice).
+* New remove awards functionality.
+
+Next release
+============
+
+I asked our admins what they want to see next in AMY and I received very nice
+feedback.  You can see all requests in `v1.1 tag`_ on GitHub.  It's scheduled
+for the end of October (but you can expect some delays :) ).
+
+.. _v1.1 tag: https://github.com/swcarpentry/amy/milestones/v1.1
