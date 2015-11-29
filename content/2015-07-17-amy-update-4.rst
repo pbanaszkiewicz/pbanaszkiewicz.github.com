@@ -1,7 +1,7 @@
 AMY update #4
 #############
 
-:tags: [gsoc, swcarpentry, django]
+:tags: [gsoc, swcarpentry, django, release notes]
 :date: 17.07.2015
 
 Today is the deadline and release day for AMY `v0.6`_.

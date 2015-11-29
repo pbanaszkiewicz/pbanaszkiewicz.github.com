@@ -1,7 +1,7 @@
 AMY update #3
 #############
 
-:tags: [gsoc, swcarpentry, django]
+:tags: [gsoc, swcarpentry, django, release notes]
 :date: 03.07.2015
 
 After some tough weeks today marks the `v0.5`_ release of AMY!

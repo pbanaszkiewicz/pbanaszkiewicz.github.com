@@ -1,7 +1,7 @@
 AMY release v1.2
 ################
 
-:tags: [swcarpentry, django]
+:tags: [swcarpentry, django, release notes]
 :date: 30.11.2015
 
 This is the third post-gsoc release of AMY, the workshop management tool for
