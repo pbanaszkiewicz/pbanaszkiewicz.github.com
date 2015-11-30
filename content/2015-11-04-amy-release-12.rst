@@ -17,7 +17,7 @@ Below you can find release notes for `version 1.2`_.
 
 
 Bug fixes
-~~~~~~~~~
+=========
 
 This release contains bigger bug fixes than `1.1`_:
 
@@ -28,7 +28,7 @@ This release contains bigger bug fixes than `1.1`_:
 
 
 New features
-~~~~~~~~~~~~
+============
 
 Following feature is also a bug fix, but it's mostly a new feature so
 I included it here:
