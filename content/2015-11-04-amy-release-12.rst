@@ -8,7 +8,7 @@ This is the third post-gsoc release of AMY, the workshop management tool for
 `Software-Carpentry`_.  This release was supported by `prof. Ethan White`_.
 Thanks a lot!
 
-Below you can find a release notes for `version 1.2`_.
+Below you can find release notes for `version 1.2`_.
 
 .. _Software-Carpentry: https://software-carpentry.org/
 .. _version 1.2: https://github.com/swcarpentry/amy/milestones/v1.2
@@ -25,8 +25,6 @@ This release contains bigger bug fixes than `1.1`_:
 * wrong characters permitted in event slugs
 * (big one) inconsistant logic in ``EventQuerySet.(un)published_events``
   methods
-* after approving person's profile update request, the updated profile is
-  displayed instead of the list of other update requests.
 
 
 New features
@@ -40,6 +38,8 @@ I included it here:
 
 Other new features:
 
+* after approving person's profile update request, the updated profile is
+  displayed instead of the list of other update requests.
 * password reset form was added,
 * issues related to, for example, missing location data are now highlighted on
   event details page,
@@ -74,7 +74,7 @@ others added to that list.  The problem is that December contains:
 * end of my semester,
 * one huge exam, a couple of smaller tests,
 * Christmas,
-* deadline for my BEng. thesis and project.
+* deadline for my BEng. project and thesis.
 
 So total time spent on AMY in December probably will be lower than what I did
 in November.
