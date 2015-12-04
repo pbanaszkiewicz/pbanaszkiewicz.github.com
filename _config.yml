@@ -1,0 +1,39 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           '/blog/:year/:month/:day/:title/'
+relative_permalinks: true
+
+# Setup
+title:               Blog
+tagline:             by Piotr Banaszkiewicz
+url:                 http://piotr.banaszkiewicz.org
+paginate:            10
+baseurl:             ""
+
+# Disqus
+disqus_name: pbanaszkiewicz
+
+# Pagination
+paginate_path: "/page/:num/"
+
+# Content
+exclude: ["*.rst"]
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Piotr Banaszkiewicz
+  url:               https://github.com/pbanaszkiewicz
+  email:             piotr@banaszkiewicz.org
+
+# Custom vars
+version:             3.0.0
+github:
+  repo:              https://github.com/pbanaszkiewicz/pbanaszkiewicz.github.io

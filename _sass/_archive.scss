@@ -1,0 +1,19 @@
+.archive-table {
+  display: table;
+}
+.archive-row {
+  display: table-row;
+}
+.archive-cell {
+  display: table-cell;
+  padding-bottom: 1rem;
+}
+.archive-date {
+  color: #9a9a9a;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+.archive-header a {
+  //margin-left: -1rem;
+  color: #303030;
+}

@@ -1,0 +1,23 @@
+---
+layout: default
+title: Archive
+---
+
+<h1>Archive</h1>
+
+<div class="archive-table">
+{% for post in site.posts %}
+  {% assign thisyear = post.date | date: "%Y" %}
+  {% assign prevyear = post.next.date | date: "%Y" %}
+  {% if thisyear != prevyear %}<h2>{{ thisyear }}</h2>{% endif %}
+
+  <div class="archive-row">
+    <div class="archive-cell archive-date">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B" }}</time>:
+    </div>
+    <div class="archive-cell archive-header">
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
