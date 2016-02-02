@@ -2,7 +2,9 @@
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           '/blog/:year/:month/:day/:title/'
-relative_permalinks: true
+
+# Plugins
+gems: [jekyll-gist, jekyll-paginate]
 
 # Setup
 title:               Blog
@@ -34,6 +36,6 @@ author:
   email:             piotr@banaszkiewicz.org
 
 # Custom vars
-version:             3.0.0
+version:             3.1.0
 github:
   repo:              https://github.com/pbanaszkiewicz/pbanaszkiewicz.github.io
