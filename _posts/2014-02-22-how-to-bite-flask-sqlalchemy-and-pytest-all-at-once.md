@@ -302,7 +302,7 @@ With `yield`, the above fixture example looks a lot clearer now:
 {% highlight python %}
 import pytest
 
-@pytest.yieldfixture(scope="session")
+@pytest.yield_fixture(scope="session")
 def db_connect(request):
     db = sql.connect()
 
