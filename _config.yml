@@ -1,17 +1,19 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           '/blog/:year/:month/:day/:title/'
+permalink: '/blog/:year/:month/:day/:title/'
 
 # Plugins
-gems: [jekyll-gist, jekyll-paginate]
+gems: [jekyll-github-metadata, jekyll-gist, jekyll-paginate]
+
+# repository: <USERNAME>/<PROJECT>
 
 # Setup
-title:               Blog
-tagline:             by Piotr Banaszkiewicz
-url:                 http://piotr.banaszkiewicz.org
-paginate:            10
-baseurl:             ""
+title: Blog
+tagline: by Piotr Banaszkiewicz
+url: http://piotr.banaszkiewicz.org
+paginate: 10
+baseurl: ""
 
 # Disqus
 disqus_name: pbanaszkiewicz
@@ -36,6 +38,6 @@ author:
   email:             piotr@banaszkiewicz.org
 
 # Custom vars
-version:             3.1.0
-github:
-  repo:              https://github.com/pbanaszkiewicz/pbanaszkiewicz.github.io
+version:             3.2.0
+#github:
+#  repo:              https://github.com/pbanaszkiewicz/pbanaszkiewicz.github.io
